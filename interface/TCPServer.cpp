@@ -1,6 +1,4 @@
 #include "TCPServer.h"
-#include "TCP_exceptions.h"
-#include <thread>
 #include <utility>
 
 const std::string TCPServer::greeting {"Welcome to t4i socket server!"};
