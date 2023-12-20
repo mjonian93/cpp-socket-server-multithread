@@ -1,7 +1,6 @@
 #include <thread>
 #include <iostream>
 #include "interface/TCPServer.h"
-#include "interface/TCP_exceptions.h"
 #include "ExampleAgent.h"
 
 

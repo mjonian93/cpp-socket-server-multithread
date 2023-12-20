@@ -29,6 +29,7 @@ TCPServer::TCPServer(TCPServer&& ts)
 
 void TCPServer::client_desconnected(int socket_fd)
 {
+    sem.release();
     auto it = tcp_clients.find(socket_fd);
     if (it != tcp_clients.end())
     {
