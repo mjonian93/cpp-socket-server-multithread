@@ -1,26 +1,26 @@
-#include "t4iAgent.h"
+#include "ExampleAgent.h"
 #include "interface/TCPServer.h"
 #include "interface/iTCPAgent.h"
 #include <unistd.h>
 
-t4iAgent::t4iAgent(int socket_fd, TCPServer *parentServer)
+ExampleAgent::ExampleAgent(int socket_fd, TCPServer *parentServer)
     : iTCPAgent(socket_fd, parentServer)
 {
 
 }
 
-t4iAgent::~t4iAgent()
+ExampleAgent::~ExampleAgent()
 {
 
 }
 
-t4iAgent::t4iAgent(t4iAgent &&ta)
+ExampleAgent::ExampleAgent(ExampleAgent &&ta)
     : iTCPAgent(std::move(ta))
 {
 
 }
 
-void t4iAgent::run() {
+void ExampleAgent::run() {
 
     while(true)
     {

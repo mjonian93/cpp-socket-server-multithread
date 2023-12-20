@@ -7,7 +7,7 @@
 #include <string>
 #include <thread>
 #include "iTCPAgent.h"
-// #include <semaphore>
+#include <semaphore>
 
 class TCPServer
 {

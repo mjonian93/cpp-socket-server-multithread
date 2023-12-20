@@ -3,12 +3,12 @@
 
 #include "interface/iTCPAgent.h"
 
-class t4iAgent : public iTCPAgent
+class ExampleAgent : public iTCPAgent
 {
 public:
-    t4iAgent(int socket_fd, TCPServer *parentServer);
-    ~t4iAgent();
-    t4iAgent(t4iAgent &&ta);
+    ExampleAgent(int socket_fd, TCPServer *parentServer);
+    ~ExampleAgent();
+    ExampleAgent(ExampleAgent &&ta);
     virtual void run() override;
 
 private:
