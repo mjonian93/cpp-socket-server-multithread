@@ -10,7 +10,8 @@
 				"-g",
 				"-Wall",
 				"-std=c++23",
-				"${fileDirname}/../*/*.cpp",
+				"${fileDirname}/*.cpp",
+				"${fileDirname}/interface/*.cpp",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"
 			],
