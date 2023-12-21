@@ -12,6 +12,7 @@
 				"-std=c++23",
 				"${fileDirname}/*.cpp",
 				"${fileDirname}/interface/*.cpp",
+				"-lpthread",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"
 			],
