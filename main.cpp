@@ -16,7 +16,9 @@ int main()
     }
     catch (std::exception &ex)
     {
-        std::cerr << ex.what() << std::endl;
+      std::cerr << ex.what() << std::endl;
     }
+
+    while(true);
 
 }

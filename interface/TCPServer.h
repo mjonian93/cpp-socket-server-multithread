@@ -9,6 +9,7 @@
 #include "iTCPAgent.h"
 #include "TCP_exceptions.h"
 #include <semaphore>
+#include <iostream>
 
 class TCPServer
 {
@@ -59,8 +60,10 @@ public:
         
         while(!done) {
             sem.acquire();
+            std::cout << "pre-accept" << std::endl;
             if ((new_socket = accept(server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) < 0)
                 throw AcceptFailedException();
+            std::cout << "post-accept" << std::endl;
             iTCPAgent *ta = new S(new_socket, this); 
             std::thread new_client {&iTCPAgent::run, ta};
             tcp_clients.insert({new_socket, std::make_pair(std::move(ta), std::move(new_client))});

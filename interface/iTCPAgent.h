@@ -16,8 +16,9 @@ public:
     virtual void run() = 0;
     void close_connection();
 
-private:
+protected:
     int socket_fd;
+private:
     TCPServer *parentServer;
 };
 
