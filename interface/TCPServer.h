@@ -63,7 +63,7 @@ public:
             sem.acquire();
             if ((new_socket = accept(server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) < 0)
                 throw AcceptFailedException();
-            iTCPAgent *ta = new S(new_socket, this); 
+            iTCPAgent *ta = new S(new_socket, this);
             std::thread new_client {&iTCPAgent::run, ta};
             new_client.detach();
         }

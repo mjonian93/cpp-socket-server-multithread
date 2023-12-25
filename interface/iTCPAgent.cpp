@@ -9,6 +9,7 @@ iTCPAgent::iTCPAgent(int socket_fd, TCPServer *parentServer)
 
 iTCPAgent::~iTCPAgent()
 {
+    client_disconnected();
     close(socket_fd);
 }
 

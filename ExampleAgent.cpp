@@ -27,12 +27,14 @@ void ExampleAgent::run() {
     size_t bytesRead {15};
     char *buffer = new char [bytesRead];
     std::cout << "New client handler running." << std::endl;
-    
+
     while(recv(socket_fd, buffer, bytesRead, 0) > 0)
     {
         std::cout << buffer << std::endl;
     }
 
-    client_disconnected();
     std::cout << "Client disconnected. Thread terminated." << std::endl;
+
+    //This delete is mandatory to avoid memory leaks.
+    delete this;
 }
