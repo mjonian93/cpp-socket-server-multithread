@@ -1,7 +1,6 @@
 #ifndef TCPAGENT_H
 #define TCPAGENT_H
 
-#include <sys/socket.h>
 #include <unistd.h>
 
 class TCPServer;
@@ -14,7 +13,7 @@ public:
     iTCPAgent(iTCPAgent &&ta);
 
     virtual void run() = 0;
-    void close_connection();
+    void client_disconnected();
 
 protected:
     int socket_fd;

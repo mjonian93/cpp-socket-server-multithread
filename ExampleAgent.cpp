@@ -23,21 +23,16 @@ ExampleAgent::ExampleAgent(ExampleAgent &&ta)
 }
 
 void ExampleAgent::run() {
-    bool done = false;
-    int result;
+    // int result;
     size_t bytesRead {15};
     char *buffer = new char [bytesRead];
     std::cout << "New client handler running." << std::endl;
-    while(!done)
+    
+    while(recv(socket_fd, buffer, bytesRead, 0) > 0)
     {
-        result = read(socket_fd, buffer, bytesRead);
-        std::cout << "post-read" << std::endl;
-        if (result > 0)
-            std::cout << buffer << std::endl;
-
-        if (std::strcmp(buffer, "close") == 0)
-            done = true;
+        std::cout << buffer << std::endl;
     }
 
-    close_connection();
+    client_disconnected();
+    std::cout << "Client disconnected. Thread terminated." << std::endl;
 }

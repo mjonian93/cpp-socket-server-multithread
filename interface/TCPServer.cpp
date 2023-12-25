@@ -1,5 +1,4 @@
 #include "TCPServer.h"
-#include <utility>
 
 const std::string TCPServer::greeting {"Welcome to t4i socket server!"};
 const int TCPServer::PORT {5000};
@@ -14,9 +13,7 @@ TCPServer::TCPServer()
 
 TCPServer::~TCPServer()
 {
-    //Forcefully kill all threads
-    // for (std::thread &thread : tcp_clients)
-        // thread.terminate();
+        
 }
 
 TCPServer::TCPServer(TCPServer&& ts) 
@@ -28,11 +25,4 @@ TCPServer::TCPServer(TCPServer&& ts)
 void TCPServer::client_desconnected(int socket_fd)
 {
     sem.release();
-    auto it = tcp_clients.find(socket_fd);
-    if (it != tcp_clients.end())
-    {
-        delete it->second.first;
-        tcp_clients.erase(it);
-    }
-
 }

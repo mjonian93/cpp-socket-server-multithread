@@ -18,6 +18,6 @@ iTCPAgent::iTCPAgent(iTCPAgent &&ta)
 
 }
 
-void iTCPAgent::close_connection(){
+void iTCPAgent::client_disconnected(){
     parentServer->client_desconnected(socket_fd);
 }

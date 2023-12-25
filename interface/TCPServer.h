@@ -58,17 +58,14 @@ public:
         if (listen(server_fd, 3) < 0)
             throw ListenFailedException();
         
+        std::cout << "Socket server running. Waiting for a new client connection..." << std::endl;
         while(!done) {
             sem.acquire();
-            std::cout << "pre-accept" << std::endl;
             if ((new_socket = accept(server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) < 0)
                 throw AcceptFailedException();
-            std::cout << "post-accept" << std::endl;
             iTCPAgent *ta = new S(new_socket, this); 
             std::thread new_client {&iTCPAgent::run, ta};
-            tcp_clients.insert({new_socket, std::make_pair(std::move(ta), std::move(new_client))});
-
-            //Any max client limitation strategy goes here
+            new_client.detach();
         }
     }
 };
