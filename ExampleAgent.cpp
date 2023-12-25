@@ -24,7 +24,7 @@ ExampleAgent::ExampleAgent(ExampleAgent &&ta)
 
 void ExampleAgent::run() {
     // int result;
-    size_t bytesRead {15};
+    size_t bytesRead {255};
     char *buffer = new char [bytesRead];
     std::cout << "New client handler running." << std::endl;
 
